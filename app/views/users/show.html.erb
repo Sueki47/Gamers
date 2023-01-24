@@ -1,0 +1,41 @@
+<main>
+  <p id="notice"><%= flash[:notice] %></p>
+  <div class='container px-5 px-sm-0'>
+    <div class='row mt-1'>
+      <div class='col-md-3'>
+        <%= render 'users/user-info',user: @user %>
+      </div>
+      <div class='col-md-8 offset-sm-1'>
+        <h2>My Reviews</h2>
+        <table class='table table-hover table-inverse'>
+          <thead>
+            <tr>
+              <th>Game</th>
+              <th>Review Title</th>
+              <th>Like</th>
+              <th>Update</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @post_reviews.each do |post_review| %>
+              <tr>
+                <td><%= link_to post_review.game.game_title, game_path(post_review.game.id) %></td>
+                <td><%= link_to post_review.review_title, game_post_review_path(post_review.id) %></td>
+                <td><%= post_review.favorites.count %>♡</td>
+                <td><%= post_review.updated_at.strftime('%Y/%m/%d') %></td>
+                <td>
+                  <% if post_review.user.id == current_user.id %>
+                    <%= link_to "delete", game_post_review_path(post_review.game, post_review), method: :delete %>
+                  <% elsif current_user.admin? %>
+                    <%= link_to "delete", game_post_review_path(post_review.game, post_review), method: :delete %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>

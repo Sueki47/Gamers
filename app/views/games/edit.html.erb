@@ -1,0 +1,32 @@
+          <div class="row mt-1">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <h2>Game Edit</h2>
+              <%= form_with model:@game, local: true do |f| %>
+                <div class="row ml-sm-2">
+                  <div class="col-md-6">
+                    <%= f.label :Title %><br />
+                    <%= f.text_field :game_title, style: "width:100%" %>
+                  </div>
+                  <div class="col-md-6">
+                    <%= f.label :image,'Image' %><br />
+                    <%= f.attachment_field :game_image %>
+                  </div>
+                </div>
+                <div class="row ml-sm-2">
+                  <div class="col-md-8">
+                    <%= f.label :About %><br />
+                    <%= f.text_area :about, style: "width:100%" %>
+                  </div>
+                  <div class="col-md-4 d-flex align-items-end">
+                    <%= f.submit 'Update Game', class: "btn btn-success"%>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="col-md-3">
+              <% if current_user.admin? %>
+                <%= link_to "delete", game_path(@game), method: :delete %>
+              <% end %>
+            </div>
+          </div>

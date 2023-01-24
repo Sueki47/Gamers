@@ -1,0 +1,7 @@
+<div class="serch_form">
+    <%= form_with url: search_path,method: :get, local: true do |f| %>
+    <%= f.text_field :content, class:"rounded-pill", placeholder: "  Search" %>
+    <%= f.select :model,options_for_select({"User"=>"user","Game"=>"game"})%>
+    <%= f.submit'search' %>
+    <% end %>
+</div>
