@@ -27,7 +27,8 @@
           <div class="col-md-3">
             <h2><%= @game.post_reviews.count %> Reviews</h2>
           </div>
-          <div class="col-md-5"></div>
+          <div class="col-md-5">
+          </div>
           <div class="col-md-3 panel-group">
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -38,6 +39,16 @@
             </div>
           </div>
         </div>
+        <% if @post_review.errors.any? %>
+        　   <div class="col-md-12">
+              <%= @post_review.errors.count %>件のエラーが発生しました
+              <ul>
+              <% @post_review.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+        <% end %>
         <div id="collapse1" class="panel-collapse collapse">
           <div class="panel-body">
             <%= form_with(model:[@game, @post_review], local: true) do |f| %>

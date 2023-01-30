@@ -8,7 +8,8 @@ class PostReviewsController < ApplicationController
       redirect_to game_post_review_path(@post_review.game.id, @post_review.id)
     else
       @game = Game.find(params[:game_id])
-      render :show
+      @user = current_user
+      render template: "games/show"
     end
   end
 

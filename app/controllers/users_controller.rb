@@ -19,6 +19,11 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
   
+  def destroy
+    Game.find_by(id: params[:id]).destroy
+    redirect_to games_path
+  end
+  
   def search
     @searched_users = Post.search(params[:keyword])
     @keyword = params[:keyword]

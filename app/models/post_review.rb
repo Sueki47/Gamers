@@ -9,5 +9,5 @@ class PostReview < ApplicationRecord
   end
 
   validates :review_title, presence: true
-  validates :opinion, presence: true, uniqueness:  {case_sensitive: false}
+  validates :opinion, presence: true
 end
