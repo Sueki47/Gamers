@@ -5,43 +5,17 @@
       <div class='col-md-3'>
         <div class= 'sidebar_fixed'>
          <%# 後にゲーム投稿部を移動 %>
+          <div class= "post game">お探しのタイトルが見つかりませんか？
+            <%= link_to new_game_path, class:"btn btn-primary btn-block" do %>
+              新規作成
+            <% end %>
+          </div>
         </div>
       </div>
       <div class='col-md-8 offset-md-1'>
         <div class='row'>
           <div class='col-md-12'>
-            <h2>Games</h2>
-              <% if @game.errors.any? %>
-                <%= @game.errors.count %>件のエラーが発生しました
-                <ul>
-                <% @game.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-                </ul>
-              <% end %>
-            <%= form_with model:@game, local: true do |f| %>
-              <div class="row ml-sm-2">
-                <div class="col-md-6">
-                  <%= f.label :Title %><br />
-                  <%= f.text_field :game_title, style: "width:100%" %>
-                </div>
-                <div class="col-md-6">
-                  <%= f.label :image,'Image' %><br />
-                  <%= f.attachment_field :game_image %>
-                </div>
-              </div>
-              <div class="row ml-sm-2">
-                <div class="col-md-8">
-                  <%= f.label :About %><br />
-                  <%= f.text_area :about, style: "width:100%" %>
-                </div>
-                <div class="col-md-4 mt-5 ">
-                  <%= f.submit 'Create Game', class: "btn btn-success"%>
-                </div>
-              </div>
-            <% end %>
           </div>
-        </div>
         <div class='row mt-3'>
           <div class='col-md-12'>
             <table class='table table-hover table-inverse'>
