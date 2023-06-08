@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
   belongs_to :user
-  attachment :game_image
+  attachment :game_image, content_type: ['image/jpeg']
   has_many :post_reviews, dependent: :destroy
 
   

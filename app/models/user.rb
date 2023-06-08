@@ -14,7 +14,7 @@ class User < ApplicationRecord
       User.where('name LIKE ?', '%' + content + '%')
     end
   end
-  attachment :profile_image
+  attachment :profile_image, content_type: ['image/jpeg']
   has_many :games, dependent: :destroy
   has_many :post_reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy

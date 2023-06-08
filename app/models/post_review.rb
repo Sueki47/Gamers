@@ -1,7 +1,7 @@
 class PostReview < ApplicationRecord
   belongs_to :user
   belongs_to :game
-  attachment :review_image
+  attachment :review_image, content_type: ['image/jpeg']
   has_many :favorites, dependent: :destroy
 
   def favorited_by?(user)

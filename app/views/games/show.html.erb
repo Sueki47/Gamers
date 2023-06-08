@@ -16,7 +16,7 @@
           <div class="col-md-11"><div class="text-right">Updated: <%= @game.updated_at.strftime('%Y/%m/%d') %></div></div>
         </div>
         <div class='row mt-3 border-bottom pb-4 border-primary'>
-          <div class="col-md-3"><%= attachment_image_tag @game, :game_image, :fill, 150, 150, format: 'jpg', fallback: "default-image.jpg", size:'150x150' %></div>
+          <div class="col-md-3"><%= attachment_image_tag @game, :game_image, size: "100x100", format: 'jpg', fallback: "default-image.jpg", size:'150x150' %></div>
           <div class="col-md-8 text-break"><%= @game.about %></div>
         </div>
         <div class="row align-items-center">

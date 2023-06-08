@@ -3,12 +3,14 @@
   <div class='container px-5 px-sm-0'>
     <div class='row mt-1'>
       <div class='col-md-3'>
-        <div class= 'sidebar_fixed'>
-         <%# 後にゲーム投稿部を移動 %>
-          <div class= "post game">お探しのタイトルが見つかりませんか？
-            <%= link_to new_game_path, class:"btn btn-primary btn-block" do %>
-              新規作成
-            <% end %>
+        <div class = "row mt-3">
+          <div class= 'col-md-12 sidebar_fixed'>
+          <%# 後にゲーム投稿部を移動 %>
+            <div class= "post game">お探しのタイトルが見つかりませんか？
+              <%= link_to new_game_path, class:"btn btn-primary btn-block" do %>
+                新規作成
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -33,7 +35,7 @@
                     <td>
                       <h4>
                         <%= link_to game_path(game.id) do%>
-                          <%= attachment_image_tag game, :game_image, :fill,  55, 55, format: 'jpg', fallback: "default-image.jpg", size:'55x55' %>
+                          <%= attachment_image_tag game, :game_image, size: "100x100", format: 'jpg', fallback: "default-image.jpg", size:'55x55' %>
                           <%= game.game_title %>
                         <% end %>
                       </h4>
