@@ -16,7 +16,7 @@
             <div class="col-md-12"><div class="text-right">Updated: <%= @post_review.game.updated_at.strftime('%Y/%m/%d') %></div></div>
           </div>
           <div class='row mt-1'>
-            <div class="col-md-3"><%= attachment_image_tag @post_review.game, :game_image, :fill, 100, 100, format: 'jpg', fallback: "default-image.jpg", size:'150x150'%></div>
+            <div class="col-md-3"><%= attachment_image_tag @post_review.game, :game_image, size: "100x100", format: 'jpg', fallback: "default-image.jpg", size:'150x150'%></div>
             <div class="col-md-9 text-break"><%= @post_review.game.about %></div>
           </div>
         </div>
@@ -43,7 +43,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <%= attachment_image_tag @post_review, :review_image, :fill, 100, 100, format: 'jpg'%>
+              <%= attachment_image_tag @post_review, :review_image, size: "100x100", format: 'jpg'%>
             </div>
           </div>
           <div class="row mt-1">
