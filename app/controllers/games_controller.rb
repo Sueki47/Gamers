@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show] 
 
   def show
-    @user = User.find(current_user.id)
     @game = Game.find(params[:id])
     @post_review = PostReview.new
     @post_reviews = @game.post_reviews.all
@@ -22,7 +22,6 @@ class GamesController < ApplicationController
 
   def index
     @game = Game.new
-    @user = User.find(current_user.id)
     @games = Game.all
   end
   

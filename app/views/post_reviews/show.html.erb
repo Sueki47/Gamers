@@ -52,13 +52,13 @@
                 <% if @post_review.favorited_by?(current_user) %>
                   <p>
                     <%= link_to game_post_review_favorites_path(@post_review.game, @post_review), method: :delete do %>
-                      ♥<%= @post_review.favorites.count %> いいね delete
+                      ♥<%= @post_review.favorites.count %> いいね 
                     <% end %>
                   </p>
                   <% else %>
                   <p>
                     <%= link_to game_post_review_favorites_path(@post_review.game, @post_review), method: :post do %>
-                      ♡<%= @post_review.favorites.count %> いいね post
+                      ♡<%= @post_review.favorites.count %> いいね 
                     <% end %>
                   </p>
                 <% end %>
